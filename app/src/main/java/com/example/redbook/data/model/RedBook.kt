@@ -3,7 +3,7 @@ package com.example.redbook.data.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
+//entity
 @Entity(tableName = "book")
 data class RedBook(
     @PrimaryKey val id: Int,
