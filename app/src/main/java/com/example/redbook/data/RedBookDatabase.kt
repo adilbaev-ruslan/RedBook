@@ -11,6 +11,7 @@ import com.example.redbook.data.model.RedBook
 abstract class RedBookDatabase: RoomDatabase() {
 
     private lateinit var INSTANCE: RedBookDatabase
+    //databace
 
     fun getInstance(context: Context) : RedBookDatabase =
         Room.databaseBuilder(
