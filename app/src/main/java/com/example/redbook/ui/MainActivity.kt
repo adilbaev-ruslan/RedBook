@@ -1,5 +1,6 @@
-package com.example.redbook
+package com.example.redbook.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -9,10 +10,13 @@ import com.google.android.material.navigation.NavigationView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.example.redbook.R
+import com.example.redbook.ui.book.BookFragment
 
 class MainActivity : AppCompatActivity() {
 
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -37,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                 else -> return@setNavigationItemSelectedListener false
             }
         }
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContext, BookFragment()).commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
