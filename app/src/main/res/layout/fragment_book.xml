@@ -16,6 +16,7 @@
         android:padding="8dp"
         android:textSize="16sp"
         android:hint="@string/search"
+        android:inputType="text"
         android:background="@drawable/et_search_background"
         android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginEnd="@dimen/margin_standard"

@@ -19,10 +19,10 @@ class BookFragment: Fragment(R.layout.fragment_book) {
 
         recyclerView.adapter = bookAdapter
         recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
+        dao = RedBookDatabase.getInstance(requireContext()).dao()
         setData()
     }
     private fun setData() {
-        dao = RedBookDatabase.getInstance(requireContext()).dao()
         bookAdapter.models = dao.getAll()
     }
 }
