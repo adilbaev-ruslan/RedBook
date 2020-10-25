@@ -1,7 +1,5 @@
 package com.example.redbook.ui.book
 
-import android.os.Parcel
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,13 +22,13 @@ class BookListAdapter(): RecyclerView.Adapter<BookListAdapter.BookViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        holder.pupulateModel(models[position])
+        holder.populateModel(models[position])
     }
 
     override fun getItemCount(): Int =models.size
 
     inner class BookViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun pupulateModel(book: Book){
+        fun populateModel(book: Book){
             itemView.tvNameUzb.text = book.nameUzb
             itemView.tvNameRus.text = book.nameRus
             itemView.tvNameEng.text = book.nameEng
