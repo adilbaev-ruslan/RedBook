@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.redbook.R
 import com.example.redbook.data.RedBookDatabase
 import com.example.redbook.data.dao.BookDao
+import com.example.redbook.ui.MainActivity
 import kotlinx.android.synthetic.main.fragment_book.*
 
 class BookFragment: Fragment(R.layout.fragment_book) {
@@ -17,12 +18,14 @@ class BookFragment: Fragment(R.layout.fragment_book) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val type = arguments?.getInt(MainActivity.TYPE_ID) ?: 1
+
         recyclerView.adapter = bookAdapter
         recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
         dao = RedBookDatabase.getInstance(requireContext()).dao()
-        setData()
+        setData(type)
     }
-    private fun setData() {
-        bookAdapter.models = dao.getAll()
+    private fun setData(type: Int) {
+        bookAdapter.models = dao.getAll(type)
     }
 }

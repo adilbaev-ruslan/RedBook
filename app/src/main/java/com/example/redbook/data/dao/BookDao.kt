@@ -6,6 +6,6 @@ import com.example.redbook.data.model.Book
 
 @Dao
 interface BookDao {
-    @Query("SELECT * FROM book")
-    fun getAll() : List<Book>
+    @Query("SELECT * FROM book WHERE type = :type")
+    fun getAll(type: Int) : List<Book>
 }
