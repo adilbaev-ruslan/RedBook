@@ -11,4 +11,9 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="search">Search</string>
+    <string name="invertabrates">Omirtqasizlar</string>
+    <string name="menu_fishes">Baliqlar</string>
+    <string name="menu_reptiles">Jerbawirlawshilar</string>
+    <string name="menu_birds">Quslar</string>
+    <string name="menu_mammals">Sutemiziwshiler</string>
 </resources>
