@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.redbook.R
 import com.example.redbook.data.model.Book
 import kotlinx.android.synthetic.main.item_book.view.*
@@ -32,6 +33,11 @@ class BookListAdapter(): RecyclerView.Adapter<BookListAdapter.BookViewHolder>(){
             itemView.tvNameUzb.text = book.nameUzb
             itemView.tvNameRus.text = book.nameRus
             itemView.tvNameEng.text = book.nameEng
+            val imageName = "picture${book.id}"
+            Glide
+                .with(itemView)
+                .load(itemView.context.resources.getIdentifier(imageName, "drawable", itemView.context.packageName))
+                .into(itemView.ivBookImage)
         }
     }
 
