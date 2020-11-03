@@ -1,5 +1,6 @@
 package com.example.redbook.ui.book
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -8,11 +9,12 @@ import com.example.redbook.R
 import com.example.redbook.data.RedBookDatabase
 import com.example.redbook.data.dao.BookDao
 import com.example.redbook.ui.MainActivity
+import com.example.redbook.ui.detail.DetailActivity
 import kotlinx.android.synthetic.main.fragment_book.*
 
-class BookFragment: Fragment(R.layout.fragment_book) {
+class BookFragment: Fragment(R.layout.fragment_book), BookClickLisiner {
 
-    private val bookAdapter = BookListAdapter()
+    private val bookAdapter = BookListAdapter(this)
     private lateinit var dao: BookDao
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,5 +29,11 @@ class BookFragment: Fragment(R.layout.fragment_book) {
     }
     private fun setData(type: Int) {
         bookAdapter.models = dao.getAll(type)
+    }
+
+    override fun onBookClick(id: Int) {
+        val intent = Intent(requireActivity(), DetailActivity::class.java)
+        intent.putExtra(DetailActivity.BOOK_ID, id)
+        startActivity(intent)
     }
 }
