@@ -9,7 +9,7 @@ import com.example.redbook.R
 import com.example.redbook.data.model.Book
 import kotlinx.android.synthetic.main.item_book.view.*
 
-class BookListAdapter(): RecyclerView.Adapter<BookListAdapter.BookViewHolder>(){
+class BookListAdapter(private val listner: BookClickLisiner): RecyclerView.Adapter<BookListAdapter.BookViewHolder>(){
 
     var models: List<Book> = listOf()
         set(value) {
@@ -38,6 +38,10 @@ class BookListAdapter(): RecyclerView.Adapter<BookListAdapter.BookViewHolder>(){
                 .with(itemView)
                 .load(itemView.context.resources.getIdentifier(imageName, "drawable", itemView.context.packageName))
                 .into(itemView.ivBookImage)
+
+            itemView.setOnClickListener {
+                listner.onBookClick(book.id)
+            }
         }
     }
 

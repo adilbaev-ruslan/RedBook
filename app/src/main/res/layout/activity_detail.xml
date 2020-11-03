@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.detail.DetailActivity">
+
+        <ImageView
+            android:id="@+id/ivDetailImage"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivDetailImage"
+            android:layout_marginTop="@dimen/margin_min"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvStatusContext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvStatus"
+            android:layout_marginTop="@dimen/margin_min"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tvPropagation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/propagation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvStatusContext"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvPropagationContext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPropagation"
+            android:layout_marginTop="@dimen/margin_min"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tvHabitat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/habitat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPropagationContext"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvHabitatContext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHabitat"
+            android:layout_marginTop="@dimen/margin_min"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tvQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quantity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHabitatContext"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvQuantityContext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvQuantity"
+            android:layout_marginTop="@dimen/margin_min"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tvLifestyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lifestyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvQuantityContext"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvLifestyleContext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLifestyle"
+            android:layout_marginTop="@dimen/margin_min"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tvLimitingFactors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/limiting_factors"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLifestyleContext"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvLimitingFactorsContext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLimitingFactors"
+            android:layout_marginTop="@dimen/margin_min"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tvBreeding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/breeding"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLimitingFactorsContext"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvBreedingContext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBreeding"
+            android:layout_marginTop="@dimen/margin_min"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/tvSecurity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/security"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBreedingContext"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvSecurityContext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSecurity"
+            android:layout_marginTop="@dimen/margin_min"
+            android:layout_marginStart="@dimen/margin_min"
+            android:layout_marginEnd="@dimen/margin_min"
+            android:textSize="12sp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
