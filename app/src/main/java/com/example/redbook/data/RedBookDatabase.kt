@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.redbook.data.dao.BookDao
 import com.example.redbook.data.model.Book
 
-@Database(entities = [Book::class], version = 1)
+@Database(entities = [Book::class], version = 2)
 abstract class RedBookDatabase: RoomDatabase() {
 
     private lateinit var INSTANCE: RedBookDatabase

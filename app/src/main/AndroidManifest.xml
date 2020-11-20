@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RedBook">
-        <activity android:name=".ui.detail.DetailActivity"></activity>
+        <activity android:name=".ui.fovarites.FovaritesActivity"></activity>
+        <activity
+            android:name=".ui.FovaritesActivity"
+            android:label="@string/title_activity_fovarites"
+            android:theme="@style/Theme.RedBook.NoActionBar" />
+        <activity android:name=".ui.detail.DetailActivity" />
         <activity android:name=".ui.DetailActivity" />
         <activity
             android:name=".ui.MainActivity"
