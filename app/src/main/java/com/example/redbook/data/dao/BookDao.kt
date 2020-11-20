@@ -19,6 +19,6 @@ interface BookDao {
     @Update
     fun updateBook(book: Book)
 
-    @Query("SELECT * FROM book WHERE isFovarite= :isFovarites")
-    fun getByFovarites(isFovarites: Int): List<Book>
+    @Query("SELECT * FROM book WHERE isFovarite= 1")
+    fun getByFovarites(): List<Book>
 }
