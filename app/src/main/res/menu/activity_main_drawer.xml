@@ -19,5 +19,8 @@
         <item
             android:id="@+id/nav_mammals"
             android:title="@string/menu_mammals" />
+
+        <item android:id="@+id/fovarites"
+            android:title="@string/selected"/>
     </group>
 </menu>

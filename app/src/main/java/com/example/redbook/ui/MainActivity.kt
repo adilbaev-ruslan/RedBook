@@ -1,19 +1,17 @@
 package com.example.redbook.ui
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.ActionBarDrawerToggle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
 import com.example.redbook.R
-import com.example.redbook.data.model.Book
 import com.example.redbook.ui.book.BookFragment
+import com.example.redbook.ui.fovarites.FovaritesFragment
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -46,27 +44,37 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContext, defaultFragment).commit()
 
         navView.setNavigationItemSelectedListener {
-            val selectedFragment = BookFragment()
+            var selectedFragment = Fragment()
+            val mBundle = Bundle()
+            selectedFragment.arguments = mBundle
             when(it.itemId) {
                 R.id.nav_invertabrates -> {
-                    bundle.putInt(TYPE_ID, INVERTABRATES)
-                    selectedFragment.arguments = bundle
+                    selectedFragment = BookFragment()
+                    mBundle.putInt(TYPE_ID, INVERTABRATES)
+                    selectedFragment.arguments = mBundle
                 }
                 R.id.nav_fishes -> {
-                    bundle.putInt(TYPE_ID, FISHES)
-                    selectedFragment.arguments = bundle
+                    selectedFragment = BookFragment()
+                    mBundle.putInt(TYPE_ID, FISHES)
+                    selectedFragment.arguments = mBundle
                 }
                 R.id.nav_reptiles -> {
-                    bundle.putInt(TYPE_ID, REPTILES)
-                    selectedFragment.arguments = bundle
+                    selectedFragment = BookFragment()
+                    mBundle.putInt(TYPE_ID, REPTILES)
+                    selectedFragment.arguments = mBundle
                 }
                 R.id.nav_birds -> {
-                    bundle.putInt(TYPE_ID, BIRDS)
-                    selectedFragment.arguments = bundle
+                    selectedFragment = BookFragment()
+                    mBundle.putInt(TYPE_ID, BIRDS)
+                    selectedFragment.arguments = mBundle
                 }
                 R.id.nav_mammals -> {
-                    bundle.putInt(TYPE_ID, MAMMALS)
-                    selectedFragment.arguments = bundle
+                    selectedFragment = BookFragment()
+                    mBundle.putInt(TYPE_ID, MAMMALS)
+                    selectedFragment.arguments = mBundle
+                }
+                R.id.fovarites -> {
+                    selectedFragment = FovaritesFragment()
                 }
                 else -> return@setNavigationItemSelectedListener false
             }

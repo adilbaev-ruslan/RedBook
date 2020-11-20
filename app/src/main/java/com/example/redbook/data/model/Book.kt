@@ -19,4 +19,5 @@ data class Book(
     @ColumnInfo(name = "limitingFactors") val limitingFactors: String,
     @ColumnInfo(name = "breeding") val breeding: String,
     @ColumnInfo(name = "security") val security: String,
+    @ColumnInfo(name = "isFovarite") var isFovarite: Int?,
 )
