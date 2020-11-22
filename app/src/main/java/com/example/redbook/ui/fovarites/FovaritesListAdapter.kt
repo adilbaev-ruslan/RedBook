@@ -9,7 +9,7 @@ import com.example.redbook.R
 import com.example.redbook.data.model.Book
 import kotlinx.android.synthetic.main.item_book.view.*
 
-class FovaritesListAdapter(private val lissiner: FovaritesClickLissiner): RecyclerView.Adapter<FovaritesListAdapter.FovaritesViewHolder>() {
+class FovaritesListAdapter: RecyclerView.Adapter<FovaritesListAdapter.FovaritesViewHolder>() {
     inner class FovaritesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun populateModel(book: Book) {
             itemView.tvNameEng.text = book.nameEng
@@ -23,7 +23,7 @@ class FovaritesListAdapter(private val lissiner: FovaritesClickLissiner): Recycl
                 .into(itemView.ivBookImage)
 
             itemView.setOnClickListener {
-                lissiner.onCickFovarite(book.id)
+                setOnClickedFovarit.invoke(book.id)
             }
         }
     }
@@ -33,6 +33,14 @@ class FovaritesListAdapter(private val lissiner: FovaritesClickLissiner): Recycl
             field = value
             notifyDataSetChanged()
         }
+
+    private var setOnClickedFovarit: (bookId: Int) -> Unit = {
+        // setOnClickedFovarit ele realizatsiay qilinbadi
+    }
+
+    fun setOnClickedFovaritListiner(setOnClickedFovarit: (bookId: Int) -> Unit) {
+        this.setOnClickedFovarit = setOnClickedFovarit
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FovaritesViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_fovarites, parent,false)

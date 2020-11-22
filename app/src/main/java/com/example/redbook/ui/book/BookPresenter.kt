@@ -1,12 +1,22 @@
 package com.example.redbook.ui.book
 
 import com.example.redbook.data.dao.BookDao
+import com.example.redbook.data.model.Book
 
-class BookPresenter(private val dao: BookDao, private val view: BookView) {
+class BookPresenter(private val dao: BookDao) {
+
+    private var setData: (models: List<Book>) -> Unit = {
+       // setData ele realizatsiay qilinbadi
+    }
+
+    fun setDataBody(setData: (models: List<Book>) -> Unit) {
+        this.setData = setData
+    }
+
     fun getAll(type: Int) {
-        view.setData(dao.getAll(type))
+        setData.invoke(dao.getAll(type))
     }
     fun getSearchByName(type: Int, word: String){
-        view.setData(dao.getSearchByName(type, word))
+        setData.invoke(dao.getSearchByName(type, word))
     }
 }

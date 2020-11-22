@@ -14,9 +14,9 @@ import com.example.redbook.ui.MainActivity
 import com.example.redbook.ui.detail.DetailActivity
 import kotlinx.android.synthetic.main.fragment_book.*
 
-class BookFragment: Fragment(R.layout.fragment_book), BookClickLisiner, BookView {
+class BookFragment: Fragment(R.layout.fragment_book) {
 
-    private val bookAdapter = BookListAdapter(this)
+    private val bookAdapter = BookListAdapter()
     private lateinit var dao: BookDao
     private lateinit var presenter: BookPresenter
 
@@ -26,23 +26,21 @@ class BookFragment: Fragment(R.layout.fragment_book), BookClickLisiner, BookView
         val type = arguments?.getInt(MainActivity.TYPE_ID) ?: 1
 
         recyclerView.adapter = bookAdapter
+        bookAdapter.setOnClickedListiner {id->
+            val intent = Intent(requireActivity(), DetailActivity::class.java)
+            intent.putExtra(DetailActivity.BOOK_ID, id)
+            startActivity(intent)
+        }
         recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
         dao = RedBookDatabase.getInstance(requireContext()).dao()
-        presenter = BookPresenter(dao, this)
+        presenter = BookPresenter(dao)
+        presenter.setDataBody {
+            bookAdapter.models = it
+        }
         presenter.getAll(type)
 
         etSearch.addTextChangedListener {
             presenter.getSearchByName(type, "%${it.toString()}%")
         }
-    }
-
-    override fun onBookClick(id: Int) {
-        val intent = Intent(requireActivity(), DetailActivity::class.java)
-        intent.putExtra(DetailActivity.BOOK_ID, id)
-        startActivity(intent)
-    }
-
-    override fun setData(models: List<Book>) {
-        bookAdapter.models = models
     }
 }
