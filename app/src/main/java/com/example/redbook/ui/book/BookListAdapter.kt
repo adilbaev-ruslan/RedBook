@@ -9,13 +9,21 @@ import com.example.redbook.R
 import com.example.redbook.data.model.Book
 import kotlinx.android.synthetic.main.item_book.view.*
 
-class BookListAdapter(private val listner: BookClickLisiner): RecyclerView.Adapter<BookListAdapter.BookViewHolder>(){
+class BookListAdapter: RecyclerView.Adapter<BookListAdapter.BookViewHolder>(){
 
     var models: List<Book> = listOf()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
+
+    private var setOnClicked: (bookId: Int) -> Unit = {
+        // setOnClicked ele realizatsiya qilinbadi
+    }
+
+    fun setOnClickedListiner(setOnClicked:(bookId: Int)->Unit) {
+        this.setOnClicked = setOnClicked
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_book, parent, false)
@@ -40,7 +48,7 @@ class BookListAdapter(private val listner: BookClickLisiner): RecyclerView.Adapt
                 .into(itemView.ivBookImage)
 
             itemView.setOnClickListener {
-                listner.onBookClick(book.id)
+                setOnClicked.invoke(book.id)
             }
         }
     }

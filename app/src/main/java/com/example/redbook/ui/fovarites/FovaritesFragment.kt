@@ -12,8 +12,8 @@ import com.example.redbook.data.model.Book
 import com.example.redbook.ui.detail.DetailActivity
 import kotlinx.android.synthetic.main.fragment_fovarites.*
 
-class FovaritesFragment: Fragment(R.layout.fragment_fovarites), FovaritesClickLissiner, FovaritesView {
-    val fovaritesAdapter = FovaritesListAdapter(this)
+class FovaritesFragment: Fragment(R.layout.fragment_fovarites) {
+    private val fovaritesAdapter = FovaritesListAdapter()
     private lateinit var dao: BookDao
     private lateinit var presenter: FovaritesPresenter
 
@@ -21,22 +21,19 @@ class FovaritesFragment: Fragment(R.layout.fragment_fovarites), FovaritesClickLi
         super.onViewCreated(view, savedInstanceState)
 
         recyclerViewFovarites.adapter = fovaritesAdapter
+        fovaritesAdapter.setOnClickedFovaritListiner {id ->
+            val intent = Intent(requireActivity(), DetailActivity::class.java)
+            intent.putExtra(DetailActivity.BOOK_ID, id)
+            startActivity(intent)
+        }
         recyclerViewFovarites.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
         dao = RedBookDatabase.getInstance(requireContext()).dao()
-        presenter = FovaritesPresenter(dao, this)
+        presenter = FovaritesPresenter(dao)
+        presenter.setDataFovaritBody {
+            fovaritesAdapter.models = it
+        }
         presenter.getByFovarites()
     }
-
-    override fun onCickFovarite(id: Int) {
-        val intent = Intent(requireActivity(), DetailActivity::class.java)
-        intent.putExtra(DetailActivity.BOOK_ID, id)
-        startActivity(intent)
-    }
-
-    override fun setData(models: List<Book>) {
-        fovaritesAdapter.models = models
-    }
-
     override fun onStart() {
         super.onStart()
         presenter.getByFovarites()
